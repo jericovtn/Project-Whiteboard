@@ -12,5 +12,11 @@ root.title("White Board")
 root.geometry("1050x570+130+50")
 root.resizable(False,False)
 
+canvas = Canvas(root,width=930,height=500,background="white",cursor="hand2")
+canvas.place(x=100,y=10)
+
+canvas.bind('<Button-1')
+canvas.bind('B1-Motion')
+
 
 root.mainloop()
