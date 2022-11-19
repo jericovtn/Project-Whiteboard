@@ -15,7 +15,6 @@ root.resizable(False,False)
 
 # icons
 
-
 current_x = 0
 current_y = 0
 color = 'black'
@@ -27,7 +26,8 @@ def locate_xy(work):
 
 def addLine(work):
     global current_x, current_y 
-    canvas.create_line((current_x, current_y, work.x, work.y), width=get_current_value(), fill=color)
+    canvas.create_line((current_x, current_y, work.x, work.y), 
+    width=get_current_value(), fill=color, capstyle=ROUND, smooth=TRUE)
     current_x, current_y = work.x, work.y
 
 def show_color(new_color):
@@ -37,6 +37,8 @@ def show_color(new_color):
 def new_canvas():
     canvas.delete('all')
     displayPalette()
+
+btn = Button(root, text = 'Clear', bd='5', command=new_canvas).place(x=30, y=400)
 
 #Colors
 colors = Canvas(root, bg='#ffffff', width=37, height=300, bd=0)
