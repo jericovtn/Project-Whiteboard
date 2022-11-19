@@ -12,6 +12,27 @@ root.title("White Board")
 root.geometry("1050x570+130+50")
 root.resizable(False,False)
 
+# icons
+
+current_x = 0
+current_y = 0
+
+def locate_xy(work):
+
+    global current_x, current_y 
+
+    current_x = work.x
+    current_y = work.y
+
+def addLine(work):
+
+    global current_x, current_y 
+
+    canvas.create_line((current_x, current_y, work.x, work.y), width=2, fill=color)
+    current_x, current_y = work.x, work.y
+
+
+#Colors
 colors = Canvas(root, bg='#ffffff', width=37, height=300, bd=0)
 colors.place(x=30, y=60)
 
@@ -44,13 +65,12 @@ def displayPalette():
     colors.tag_bind(id, 'Button-1',lambda x: show_color('purple'))
 
     
-
 displayPalette()
 
 canvas = Canvas(root,width=930,height=500,background="white",cursor="hand2")
 canvas.place(x=100,y=10)
 
-canvas.bind('<Button-1', locate_xy)
+canvas.bind('<Button-1>', locate_xy)
 canvas.bind('B1-Motion', addLine)
 
 
