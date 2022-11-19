@@ -14,4 +14,11 @@ root.configure(bg="f2f3f5")
 root.resizable(False,False)
 
 #icon
+pencil = PhotoImage(file="pencil.png")
+root.iconphoto(False,pencil)
 
+holder = PhotoImage(file="holder.png")
+Label(root,image=holder,bg="f2f3f5").place(x=10,y=20)
+
+
+root.mainloop()
